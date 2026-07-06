@@ -1,0 +1,109 @@
+/* William Klett — minimal personal site.
+   Stripped to k-punk sparseness: small name, plain project list, lots of
+   whitespace. The Landian glyph art is the only visual flourish. */
+
+:root {
+  --bg:        #d8d5cf;   /* stone paper */
+  --ink:       #0e0e0c;
+  --ink-dim:   #6a6860;
+  --rule:      #b3afa5;
+  --accent:    #14365c;   /* navy — links */
+  --landian:   #6f5fa5;   /* lavender — art, slash */
+  --mono-color:#b31b1b;   /* arXiv red — small mono accents */
+  --serif:     "Charter", "Iowan Old Style", "Source Serif Pro", Georgia, serif;
+  --mono:      "JetBrains Mono", "Iosevka", ui-monospace, SFMono-Regular, Menlo, monospace;
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0; padding: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--serif);
+  font-size: 17px; line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+body {
+  background-image: var(--tex, none);
+  background-repeat: repeat;
+  background-size: 900px 900px;
+  background-attachment: fixed;
+}
+
+main { max-width: 760px; margin: 0 auto; padding: 4.5rem 1.5rem 6rem; }
+
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; text-decoration-color: var(--landian); text-underline-offset: 3px; }
+
+/* Top: small name + tagline + links on the left, glyph art on the right */
+.top {
+  display: flex; align-items: flex-start; justify-content: space-between;
+  gap: 2.5rem; margin-bottom: 3rem;
+}
+@media (max-width: 620px) { .top { flex-direction: column-reverse; gap: 1.6rem; } }
+
+.who { min-width: 0; padding-top: 0.2rem; }
+.name {
+  font-family: var(--mono);
+  font-size: 0.92rem; font-weight: 700;
+  letter-spacing: 0.08em; text-transform: uppercase;
+  color: var(--ink);
+}
+.tagline {
+  margin: 0.7rem 0 0; max-width: 30em;
+  color: var(--ink-dim); font-size: 1rem; line-height: 1.5;
+}
+.links {
+  margin-top: 0.9rem;
+  font-family: var(--mono); font-size: 0.8rem; letter-spacing: 0.02em;
+}
+.links a { color: var(--mono-color); margin-right: 1.1rem; }
+.links a:hover { color: var(--ink); }
+
+.art { flex: 0 0 auto; }
+.art img { display: block; width: 168px; height: auto; }
+@media (max-width: 620px) { .art img { width: 132px; } }
+
+/* Intro prose */
+.intro { margin: 0 0 2.6rem; }
+
+/* Projects — plain k-punk-style list: year + title + blurb */
+ul.projects { list-style: none; margin: 0; padding: 0; }
+ul.projects li {
+  display: flex; gap: 1.1rem; align-items: baseline;
+  padding: 0.55rem 0;
+  border-bottom: 1px solid var(--rule);
+}
+ul.projects li:first-child { border-top: 1px solid var(--rule); }
+.yr {
+  flex: 0 0 3rem;
+  font-family: var(--mono); font-size: 0.8rem; color: var(--ink-dim);
+}
+.row { min-width: 0; }
+.row .t { font-weight: 600; }
+.row .t:not(a) { color: var(--ink); }
+.row .b { color: var(--ink-dim); }
+
+/* Prose (intro + project body) */
+.prose { max-width: 40em; }
+.prose p, .prose li { font-size: 1.02rem; }
+.prose h2, .prose h3 { font-family: var(--serif); font-weight: 600; margin: 1.6rem 0 0.4rem; }
+.prose h3 { font-size: 1.05rem; }
+.prose a { border-bottom: 1px dotted var(--rule); }
+.prose code {
+  font-family: var(--mono); font-size: 0.86em; color: var(--mono-color);
+}
+.prose pre {
+  background: #0a0a09; color: #d8d5cf; padding: 0.9rem 1rem; overflow-x: auto;
+  font-family: var(--mono); font-size: 0.82rem;
+}
+.prose pre code { color: inherit; }
+
+/* Project detail page */
+.crumbs { font-family: var(--mono); font-size: 0.78rem; margin-bottom: 2.2rem; }
+.crumbs a { color: var(--mono-color); }
+.project h1 { font-family: var(--serif); font-weight: 700; font-size: 1.8rem; margin: 0 0 0.3rem; letter-spacing: -0.01em; }
+.project .meta { font-family: var(--mono); font-size: 0.78rem; color: var(--ink-dim); }
+.project .links { margin: 0.7rem 0 1.6rem; }

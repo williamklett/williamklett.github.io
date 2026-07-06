@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block main %}
+  <header class="top">
+    <div class="who">
+      <div class="name">{{ site.name }}</div>
+      {% if site.tagline %}<p class="tagline">{{ site.tagline }}</p>{% endif %}
+      {% if site.links %}
+      <div class="links">
+        {% for l in site.links %}<a href="{{ l.url }}"{% if l.url.startswith('http') %} rel="noopener"{% endif %}>{{ l.label }}</a>{% endfor %}
+      </div>
+      {% endif %}
+    </div>
+    <div class="art" aria-hidden="true"><img src="{{ root }}static/glyph-hero.svg" alt=""></div>
+  </header>
+
+  {% if site.intro_html %}<div class="prose intro">{{ site.intro_html | safe }}</div>{% endif %}
+
+  <ul class="projects">
+    {% for p in projects %}
+      <li>
+        <span class="yr">{{ p.year or "" }}</span>
+        <span class="row">
+          {% if p.has_page %}<a class="t" href="{{ root }}projects/{{ p.slug }}/index.html">{{ p.title }}</a>
+          {% elif p.url %}<a class="t" href="{{ p.url }}" rel="noopener">{{ p.title }}</a>
+          {% else %}<span class="t">{{ p.title }}</span>{% endif %}
+          {% if p.blurb %}<span class="b">— {{ p.blurb }}</span>{% endif %}
+        </span>
+      </li>
+    {% endfor %}
+  </ul>
+{% endblock %}

@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block title %}{{ p.title }} — {{ site.name }}{% endblock %}
+
+{% block main %}
+  <div class="crumbs"><a href="{{ root }}index.html">← {{ site.name }}</a></div>
+
+  <article class="project">
+    <h1>{{ p.title }}</h1>
+    <div class="meta">
+      {% if p.year %}{{ p.year }}{% endif %}{% if p.status %} · {{ p.status }}{% endif %}
+      {% if p.tags %} · {{ p.tags | join(" · ") }}{% endif %}
+    </div>
+    {% if p.links %}
+    <div class="links">
+      {% for l in p.links %}<a href="{{ l.url }}"{% if l.url.startswith('http') %} rel="noopener"{% endif %}>{{ l.label }}</a>{% endfor %}
+    </div>
+    {% endif %}
+    <div class="prose">{{ p.body_html | safe }}</div>
+  </article>
+{% endblock %}
