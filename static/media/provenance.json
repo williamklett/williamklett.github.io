@@ -1,0 +1,16 @@
+[
+  {
+    "file": "t1137s4.mp4",
+    "source_run": "esmfold_probe_T1137s4_47layers_consistency1",
+    "visualization": "MDS of decoded probe distance maps, fixed camera; interpolation between layers",
+    "sha256": "e084aa90dcba71337ecf9d7ed3d909a21497aa967e06a9f91fb32bc2b7e70fd4",
+    "bytes": 5904079
+  },
+  {
+    "file": "8fmi.mp4",
+    "source_run": "esmfold_probe_8fmi_47layers_consistency1",
+    "visualization": "MDS of decoded probe distance maps, fixed camera; interpolation between layers",
+    "sha256": "f1189bff0c841b6cecd74a3fe6f235aa1a33fbef4e6e7add9b722e0f2a19fbc0",
+    "bytes": 4519124
+  }
+]

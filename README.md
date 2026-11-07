@@ -1,8 +1,6 @@
-# William Klett — personal site
+# William Klett
 
-A static, interactive portfolio for Kalshi, ESM probe, and looped transformer work. Preserves the original stone-paper, serif, navy/red/lavender, procedural-glyph design. HTML is rendered at build time; small vanilla JavaScript modules enhance the project explorer.
-
-## Build and preview
+Personal site: https://williamklett.github.io
 
 ```sh
 python -m pip install -r requirements.txt
@@ -10,27 +8,14 @@ python build.py
 python -m http.server 8077 --directory dist
 ```
 
-Open http://localhost:8077. `dist/` is the complete static output, including `.nojekyll`. The existing GitHub Pages workflow builds and deploys on pushes to `main`, retaining its custom-domain configuration.
+The existing GitHub Actions workflow builds `dist/` and deploys to GitHub Pages. No custom domain is configured or emitted.
 
-## Edit
+## Content
 
-- `content/site.md`: name, description, and biography.
-- `content/projects/*.md`: write-ups and metadata. `featured: true` includes a project in the home explorer; its slug must have a matching template in `templates/demos/`.
-- `templates/demos/`: the three interactive explanations.
-- `static/site.js`: tab navigation and demo state.
-- `static/style.css`: responsive layout and original design palette.
-- `glyph.py`: original procedural artwork generator.
+- Kalshi: SWIM/DATIS → colocated machine → trading desk; an illustrative animation of market-maker bid/ask quotes, a fair-price estimate, and a stale-quote fill. The displayed $150 → $8,000 in two months and 3,000+ settled trades are transcribed from the user's one-page résumé, not computed from the animation.
+- ESM: geometric ESMFold probe, original fixed-camera video exports, and a link to the author's write-up. These show decoded distance-map embeddings across depth, not physical molecular trajectories. Animation provenance and checksums are in `static/media/provenance.json`.
+- Looped transformers: illustrative random-stopping diagram and public paper/code link.
 
-The prior Blue Shift project page is retained at its existing URL but is not featured. The sample link-only entry was removed.
+`content/site.md` and `content/projects/` hold text. `templates/demos/` holds the project panels; `static/site.js` handles interaction. The prior Blue Shift page remains at its existing URL. Python dependencies are build-time only.
 
-## Content and evidence
-
-The Kalshi demo uses synthetic price paths to explain temporary imbalance versus lasting information. It is not a market feed or evidence of trading performance. Its description is based on the project's recording and simulation documentation; source code remains private.
-
-The ESM chart uses recorded results from the `esm-viral-origin` handoff README for four frozen readouts under the original paired-batch extraction policy. It is not live inference. All three evaluation panels, small-negative-panel caveats, and limitations are reproduced in the write-up. The related public Foldguard demo is a separate project interface. No model weights or private project source are included.
-
-The loop demo shows a capped geometric stopping schedule with eight steps. It illustrates the mechanism, not a reported experimental outcome. The public evidence is at https://github.com/williamklett/looped-readout-monitoring.
-
-## Interaction and accessibility
-
-Project tabs support arrow keys, Home, and End. Native sliders and selectors work with the keyboard. Project hashes link directly to a selected panel. Static project text remains available without JavaScript. Reduced-motion preferences disable transitions, and mobile layouts use horizontal project tabs. There are no runtime framework dependencies, tracking scripts, or external font requests.
+Keyboard-accessible tabs, native video controls, reduced-motion support, and relative asset paths are retained. Videos are only fetched as needed; they do not autoplay. The market animation pauses outside the visible panel and honors reduced-motion preferences.

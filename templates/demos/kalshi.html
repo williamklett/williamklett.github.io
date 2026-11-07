@@ -1,21 +1,31 @@
 <div class="demo" data-demo="kalshi">
-  <h3>What’s behind a price move?</h3>
-  <p class="demo-intro">The same initial jump can tell two very different stories. Replay a synthetic event to see the difference.</p>
-  <div class="segmented" role="group" aria-label="Market event type"><button type="button" data-regime="temporary" aria-pressed="true">Temporary imbalance</button><button type="button" data-regime="information" aria-pressed="false">New information</button></div>
-  <figure class="chart-figure">
-    <div class="chart-top"><span>ILLUSTRATIVE CONTRACT PRICE</span><output class="market-price" aria-live="polite">68.0¢</output></div>
-    <svg class="market-chart" viewBox="0 0 540 210" role="img" aria-label="Synthetic price path after a temporary imbalance or new information, from 0 to 60 seconds">
-      <defs><pattern id="market-grid" width="110" height="50" patternUnits="userSpaceOnUse"><path d="M 110 0 L 0 0 0 50" fill="none" stroke="currentColor" stroke-opacity=".13" stroke-dasharray="2 4"/></pattern></defs>
-      <rect x="44" y="18" width="462" height="152" fill="url(#market-grid)"/>
-      <g class="axis"><text x="4" y="30">70¢</text><text x="4" y="100">60¢</text><text x="4" y="173">50¢</text><text x="44" y="197">0s</text><text x="148" y="197">15</text><text x="264" y="197">30</text><text x="379" y="197">45</text><text x="486" y="197">60s</text></g>
-      <path class="reference-line" d="M44 170 H506"/>
-      <path class="market-path" d="M44 40 L506 170"/>
-      <line class="market-cursor" x1="44" x2="44" y1="18" y2="170"/>
-      <circle class="market-dot" cx="44" cy="40" r="5"/>
+  <div class="project-title"><h2>Kalshi</h2><a href="https://kalshi.com/ideas/profiles/sharpeleopard">Profile ↗</a></div>
+  <dl class="earnings"><div><dt>Account growth</dt><dd>$150 <span>→</span> $8,000</dd></div><div><dt>Period</dt><dd>2 months</dd></div><div><dt>Settled trades</dt><dd>3,000+</dd></div></dl>
+  <figure class="flow-figure">
+    <svg class="flow-graph desktop-flow" viewBox="0 0 650 162" role="img" aria-label="SWIM and DATIS weather observations flow through a colocated machine into the trading desk">
+      <defs><marker id="flow-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10" fill="none" stroke="currentColor" stroke-width="1.5"/></marker></defs>
+      <g class="flow-lines" fill="none" marker-end="url(#flow-arrow)"><path d="M120 39 H166 Q180 39 180 54 V67 Q180 81 194 81 H244"/><path d="M120 123 H166 Q180 123 180 109 V95 Q180 81 194 81 H244"/><path d="M408 81 H489"/></g>
+      <g class="flow-node"><rect x="1" y="17" width="118" height="44"/><text x="60" y="44">SWIM</text><rect x="1" y="101" width="118" height="44"/><text x="60" y="128">DATIS</text><rect x="245" y="47" width="162" height="68"/><text x="326" y="76">COLOCATED</text><text x="326" y="94">MACHINE</text><rect x="490" y="47" width="159" height="68"/><text x="570" y="76">TRADING</text><text x="570" y="94">DESK</text></g>
+      <circle class="flow-packet" r="4" cx="133" cy="39"/>
     </svg>
-    <figcaption class="chart-caption"><span class="legend-dot"></span><span class="regime-caption">Temporary pressure dissipates; the price tends back toward its starting level.</span></figcaption>
+    <svg class="flow-graph mobile-flow" viewBox="0 0 360 235" role="img" aria-label="SWIM and DATIS flow into a colocated machine, then into the trading desk">
+      <defs><marker id="flow-arrow-mobile" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0 0 L10 5 L0 10" fill="none" stroke="currentColor" stroke-width="1.5"/></marker></defs>
+      <g class="flow-lines" fill="none" marker-end="url(#flow-arrow-mobile)"><path d="M80 50 V66 H180 V86"/><path d="M280 50 V66 H180 V86"/><path d="M180 142 V179"/></g>
+      <g class="flow-node"><rect x="10" y="9" width="140" height="41"/><text x="80" y="35">SWIM</text><rect x="210" y="9" width="140" height="41"/><text x="280" y="35">DATIS</text><rect x="100" y="87" width="160" height="55"/><text x="180" y="110">COLOCATED</text><text x="180" y="127">MACHINE</text><rect x="100" y="180" width="160" height="45"/><text x="180" y="207">TRADING DESK</text></g>
+    </svg>
   </figure>
-  <label class="range-label" for="market-time"><span>Seconds after the event</span><output id="market-time-value" for="market-time">0 s</output></label>
-  <input id="market-time" type="range" min="0" max="60" value="0" step="1">
-  <p class="fine-print">Synthetic mechanism sketch. No live prices or trading-performance claims.</p>
+  <div class="market-heading"><span>Market-maker quotes & price</span><span class="market-event" aria-live="polite">Waiting for update</span></div>
+  <figure class="market-figure">
+    <svg class="market-chart" viewBox="0 0 650 240" role="img" aria-label="Illustrative animation of market-maker bid and ask quotes, a fair-price estimate, and a stale-quote fill">
+      <g class="grid"><path d="M40 27 H622 M40 81 H622 M40 135 H622 M40 189 H622"/></g>
+      <g class="axis"><text x="2" y="31">80¢</text><text x="2" y="85">65¢</text><text x="2" y="139">50¢</text><text x="2" y="193">35¢</text><text x="40" y="225">0</text><text x="320" y="225">30</text><text x="594" y="225">60 s</text></g>
+      <path class="quote-path bid-path"/><path class="quote-path ask-path"/><path class="price-path"/>
+      <line class="news-line" x1="244" x2="244" y1="15" y2="202"/>
+      <circle class="fill-dot" r="4" cx="280" cy="154"/>
+      <line class="market-cursor" y1="15" y2="202"/>
+    </svg>
+    <figcaption class="market-legend"><span class="legend-bid">MM bid</span><span class="legend-ask">MM ask</span><span class="legend-price">Fair price</span><span class="legend-fill">Desk fill</span></figcaption>
+  </figure>
+  <div class="playback"><button type="button" id="market-play" aria-label="Play market animation">Play ▶</button><input id="market-time" aria-label="Market animation time" type="range" min="0" max="60" value="0" step="0.1"><output id="market-time-value" for="market-time">0.0 s</output></div>
+  <p class="small-note">Illustrative replay</p>
 </div>

@@ -4,26 +4,16 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#d8d5cf">
-  <title>{% block title %}William Klett — Research & projects{% endblock %}</title>
-  <meta name="description" content="{% block description %}{{ site.tagline }} Explore William Klett's work on Kalshi, ESM probes, and looped transformers.{% endblock %}">
+  <title>{% block title %}William Klett{% endblock %}</title>
+  <meta name="description" content="Interested in alignment, biosecurity, philosophy.">
   <link rel="icon" href="{{ root }}static/favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="{{ root }}static/style.css?v=20261107b">
-  <script src="{{ root }}static/site.js?v=20261107b" defer></script>
+  <link rel="stylesheet" href="{{ root }}static/style.css?v=20261107c">
+  <script src="{{ root }}static/site.js?v=20261107c" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
-  <noscript><p style="padding:12px 20px">Interactive diagrams require JavaScript. All project write-ups remain readable below.</p></noscript>
   <div class="site-shell">
-    <header class="masthead">
-      <a class="wordmark" href="{{ root }}index.html" aria-label="William Klett home">WK<span class="slash"> / </span><span class="wordmark-caption">RESEARCH & PROJECTS</span></a>
-      <nav aria-label="Main navigation">
-        <a href="{{ root }}index.html#work">Work <span>03</span></a>
-        <a href="{{ root }}index.html#about">About</a>
-        <a href="mailto:wk2617@princeton.edu">Contact <span aria-hidden="true">↗</span></a>
-      </nav>
-    </header>
     <main id="main">{% block main %}{% endblock %}</main>
-    <footer><span>© {{ year }} William Klett</span><span>Built with curiosity. Hosted on GitHub.</span><a href="#main">Back to top ↑</a></footer>
   </div>
 </body>
 </html>
