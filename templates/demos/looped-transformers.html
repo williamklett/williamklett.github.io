@@ -1,0 +1,14 @@
+<div class="demo" data-demo="loops">
+  <h3>What if any step could be the last?</h3>
+  <p class="demo-intro">A known final step can separate monitored behavior from executed behavior. Random stopping changes that structure.</p>
+  <div class="segmented" role="group" aria-label="Stopping schedule"><button type="button" data-schedule="fixed" aria-pressed="false">Fixed endpoint</button><button type="button" data-schedule="random" aria-pressed="true">Random stopping</button></div>
+  <figure class="loop-figure">
+    <div class="chart-top"><span>EXECUTION PROBABILITY BY STEP</span><span>SHARED WEIGHTS ↻</span></div>
+    <div class="loop-steps" role="img" aria-label="Stopping probabilities across eight recurrent steps"></div>
+    <figcaption class="chart-caption loop-caption">Each intermediate step can become the action the system executes.</figcaption>
+  </figure>
+  <label class="range-label" for="stop-prob"><span>Per-step stopping probability</span><output id="stop-prob-value" for="stop-prob">50%</output></label>
+  <input id="stop-prob" type="range" min="10" max="90" step="10" value="50">
+  <div class="loop-stats"><span>Expected steps <strong class="expected-steps">1.99</strong></span><span>Maximum steps <strong>8</strong></span></div>
+  <p class="fine-print">Conceptual capped geometric schedule, not experimental results. Any remaining probability is assigned to step 8.</p>
+</div>

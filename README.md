@@ -1,69 +1,36 @@
 # William Klett — personal site
 
-A static personal website, forked from the Blue Shift aesthetic (stone
-paper, Landian glyph art, serif body + monospace data, navy / arXiv-red /
-lavender accents). No server at runtime — `build.py` renders everything to
-`dist/`, which you host anywhere.
+A static, interactive portfolio for Kalshi, ESM probe, and looped transformer work. Preserves the original stone-paper, serif, navy/red/lavender, procedural-glyph design. HTML is rendered at build time; small vanilla JavaScript modules enhance the project explorer.
 
-## Edit content
+## Build and preview
 
-Everything is markdown. No code needed.
-
-- **`content/site.md`** — your name, the wordmark split (`brand_first` /
-  `brand_second`), tagline, links, and the intro paragraph (markdown body
-  below the front-matter).
-- **`content/projects/*.md`** — one file per project. Front-matter fields:
-  ```yaml
-  ---
-  title: My Project
-  year: 2026
-  status: active          # optional, shows in the meta column
-  order: 1                # lower = higher in the list (ties: year desc)
-  blurb: One-line description shown in the list.
-  tags: [tag-a, tag-b]
-  links:                  # optional, shown on the detail page
-    - { label: GitHub, url: "https://..." }
-  url: "https://..."      # optional — used only for link-only rows
-  ---
-
-  Markdown write-up here. If there's a body, the project gets its own
-  page. If the file is front-matter only, the row links straight to `url`
-  (or is plain text if no url).
-  ```
-
-Add a project = drop a new `.md` in `content/projects/`. Delete one =
-remove the file. Reorder = set `order:`.
-
-## Build
-
-```bash
-pip install -r requirements.txt      # jinja2, markdown, pyyaml (build-time only)
-python build.py                      # -> dist/
+```sh
+python -m pip install -r requirements.txt
+python build.py
+python -m http.server 8077 --directory dist
 ```
 
-Preview locally:
+Open http://localhost:8077. `dist/` is the complete static output, including `.nojekyll`. The existing GitHub Pages workflow builds and deploys on pushes to `main`, retaining its custom-domain configuration.
 
-```bash
-cd dist && python -m http.server 8077      # open http://localhost:8077
-```
+## Edit
 
-## Deploy (free static hosting)
+- `content/site.md`: name, description, and biography.
+- `content/projects/*.md`: write-ups and metadata. `featured: true` includes a project in the home explorer; its slug must have a matching template in `templates/demos/`.
+- `templates/demos/`: the three interactive explanations.
+- `static/site.js`: tab navigation and demo state.
+- `static/style.css`: responsive layout and original design palette.
+- `glyph.py`: original procedural artwork generator.
 
-`dist/` is a complete static site (includes `.nojekyll` for GitHub Pages).
+The prior Blue Shift project page is retained at its existing URL but is not featured. The sample link-only entry was removed.
 
-- **GitHub Pages**: push `dist/` to a `gh-pages` branch, or set Pages to
-  serve from `/docs` (rename/output to `docs/`), or use a
-  `username.github.io` repo and put `dist/`'s contents at the root.
-- **Netlify / Vercel / Cloudflare Pages**: point at this repo, set the
-  build command to `python build.py` and the publish directory to `dist`.
+## Content and evidence
 
-Paths in the generated HTML are relative, so it works whether served from
-a domain root or a `/repo/` subpath.
+The Kalshi demo uses synthetic price paths to explain temporary imbalance versus lasting information. It is not a market feed or evidence of trading performance. Its description is based on the project's recording and simulation documentation; source code remains private.
 
-## Aesthetic
+The ESM chart uses recorded results from the `esm-viral-origin` handoff README for four frozen readouts under the original paired-batch extraction policy. It is not live inference. All three evaluation panels, small-negative-panel caveats, and limitations are reproduced in the write-up. The related public Foldguard demo is a separate project interface. No model weights or private project source are included.
 
-The Landian glyph art (`dist/static/glyph-hero.svg`), the stone background
-texture, and the header halftone are all generated procedurally by
-`glyph.py` at build time — change the seeds/colors in `build.py` to
-regenerate different art. Fonts: Orbitron (wordmark) + JetBrains Mono +
-a Charter serif stack.
+The loop demo shows a capped geometric stopping schedule with eight steps. It illustrates the mechanism, not a reported experimental outcome. The public evidence is at https://github.com/williamklett/looped-readout-monitoring.
+
+## Interaction and accessibility
+
+Project tabs support arrow keys, Home, and End. Native sliders and selectors work with the keyboard. Project hashes link directly to a selected panel. Static project text remains available without JavaScript. Reduced-motion preferences disable transitions, and mobile layouts use horizontal project tabs. There are no runtime framework dependencies, tracking scripts, or external font requests.

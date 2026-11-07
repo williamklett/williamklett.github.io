@@ -1,0 +1,18 @@
+<div class="demo" data-demo="esm">
+  <h3>Where does the signal live?</h3>
+  <p class="demo-intro">Keep ESM3 frozen. Change the linear readout. Compare recorded viral-origin classification results.</p>
+  <label class="select-label" for="esm-panel">Evaluation panel<select id="esm-panel"><option value="full">Full benchmark</option><option value="human">Viral vs human</option><option value="difficult">Difficult cellular controls</option></select></label>
+  <figure class="esm-figure">
+    <div class="chart-top"><span>RECORDED TEST AUROC</span><span>HIGHER IS BETTER</span></div>
+    <div class="bar-chart" role="img" aria-label="Recorded full benchmark AUROC: final layer 0.990701; 256 features 0.988812; 1,024 features 0.992759; all 48 layers 0.993626">
+      <div class="bar-row"><span>Final layer</span><div class="bar-track"><div class="bar-fill" style="width:90.701%"></div></div><output>0.990701</output></div>
+      <div class="bar-row"><span>256 features</span><div class="bar-track"><div class="bar-fill" style="width:88.812%"></div></div><output>0.988812</output></div>
+      <div class="bar-row"><span>1,024 features</span><div class="bar-track"><div class="bar-fill" style="width:92.759%"></div></div><output>0.992759</output></div>
+      <div class="bar-row highlight"><span>All 48 layers</span><div class="bar-track"><div class="bar-fill" style="width:93.626%"></div></div><output>0.993626</output></div>
+    </div>
+    <div class="bar-axis"><span>0.90</span><span>0.95</span><span>1.00</span></div>
+    <figcaption class="chart-caption">Axis starts at 0.90 to show small differences.</figcaption>
+  </figure>
+  <p class="result-note" aria-live="polite">Full TEST: 1,046 viral and 1,034 cellular proteins.</p>
+  <p class="fine-print">Repeatedly inspected benchmark; homology independence unverified. Origin classification does not establish pathogenicity. <a href="{{ root }}projects/esm-probe/index.html">Method & limits ↗</a></p>
+</div>

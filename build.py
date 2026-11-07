@@ -79,6 +79,8 @@ def load_projects():
             "title": meta.get("title", slug),
             "year": meta.get("year"),
             "status": meta.get("status"),
+            "featured": meta.get("featured", False),
+            "category": meta.get("category", ""),
             "order": meta.get("order", 999),
             "blurb": meta.get("blurb", ""),
             "tags": meta.get("tags", []) or [],
@@ -109,8 +111,8 @@ def main():
         shutil.rmtree(DIST)
     (DIST / "static").mkdir(parents=True)
 
-    # copy stylesheet
-    shutil.copy(HERE / "static" / "style.css", DIST / "static" / "style.css")
+    # Copy all browser assets; no runtime framework or build tool required.
+    shutil.copytree(HERE / "static", DIST / "static", dirs_exist_ok=True)
 
     # GitHub Pages: skip Jekyll processing of the static output
     (DIST / ".nojekyll").write_text("")
@@ -120,10 +122,11 @@ def main():
         glyph.glyph_block("william-klett-hero", rows=6, cols=4, cell=58, color=LAVENDER))
     (DIST / "static" / "texture.svg").write_text(
         glyph.glyph_texture("william-klett-stone", tile=900, n=24,
-                            size_lo=80, size_hi=180, color="#6c5d9c", opacity=0.085))
+                            size_lo=40, size_hi=100, color="#6c5d9c", opacity=0.035))
     halftone = glyph.halftone_strip(width=1600, height=40, grid=5, color=INK)
 
-    common = dict(site=site, cat=CAT, halftone=halftone, year=year)
+    hero_glyph = glyph.glyph_block("william-klett-hero", rows=5, cols=4, cell=58, color=LAVENDER)
+    common = dict(site=site, cat=CAT, halftone=halftone, year=year, hero_glyph=hero_glyph)
 
     # index
     html = env.get_template("index.html").render(root="", projects=projects, **common)
