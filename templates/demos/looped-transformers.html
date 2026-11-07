@@ -1,8 +1,21 @@
-<div class="demo" data-demo="loops">
+<div class="demo" data-demo="chess" data-replays="{{ root }}static/media/chess-replays.json">
   <div class="project-title"><h2>Looped transformers</h2><a href="https://github.com/williamklett/looped-readout-monitoring">Paper & code ↗</a></div>
-  <div class="segmented" role="group" aria-label="Stopping schedule"><button type="button" data-schedule="fixed" aria-pressed="false">Fixed endpoint</button><button type="button" data-schedule="random" aria-pressed="true">Random stopping</button></div>
-  <figure class="loop-figure"><figcaption>Execution probability by step</figcaption><div class="loop-steps" role="img" aria-label="Stopping probabilities across eight recurrent steps"></div></figure>
-  <label class="range-label" for="stop-prob"><span>Stopping probability</span><output id="stop-prob-value" for="stop-prob">50%</output></label><input id="stop-prob" type="range" min="10" max="90" step="10" value="50">
-  <p class="loop-stats">Expected steps <strong class="expected-steps">1.99</strong></p>
-  <p class="small-note">Illustrative schedule · capped at 8 steps</p>
+  <p class="project-description">{{ p.description }}</p>
+  <div class="chess-summary" aria-label="Final held-out chess results">
+    <div class="result-row"><span>Fixed stopping</span><div class="result-track"><i style="width:99.04%"></i></div><strong>99.04%</strong></div>
+    <div class="result-row"><span>Random stopping</span><div class="result-track"><i class="result-random" style="width:4.55%"></i></div><strong>4.17–4.55%</strong></div>
+    <p class="small-note">Unpenalized cheating · 32 held-out boards / 8 families / 3 seeds</p>
+  </div>
+  <div class="segmented chess-conditions" role="group" aria-label="Chess stopping condition"><button type="button" data-condition="fixed_depth_audit" aria-pressed="true">Fixed stopping</button><button type="button" data-condition="random_audit" aria-pressed="false">Random stopping</button><button type="button" data-condition="no_audit" aria-pressed="false">No audit</button></div>
+  <div class="chess-controls"><label>Seed <select id="chess-seed"><option>17</option><option>29</option><option selected>43</option></select></label><label>Position <select id="chess-position" aria-label="Test position"><option value="0">01</option></select></label><button type="button" class="minor-button" id="chess-next">Next rollout ↻</button><span id="chess-rollout">01 / 16</span></div>
+  <div class="chess-stage terminal-panel">
+    <div class="chess-board-wrap"><svg id="chess-board" viewBox="0 0 400 400" role="img" aria-label="Saved chess position, White to move"></svg></div>
+    <div class="chess-readout"><span class="instrument-label">RECURRENT READOUT</span><strong id="chess-pass">Pass 1</strong><code id="chess-command">…</code><span id="chess-route">Loading replay…</span><p id="chess-verdict" role="status"></p><div class="chess-reward"><span>Total reward</span><output id="chess-reward">0</output></div><div id="chess-pass-track" aria-label="Reasoning passes"></div></div>
+  </div>
+  <div class="playback"><button type="button" id="chess-play" aria-label="Play chess replay">Play ▶</button><input id="chess-time" aria-label="Chess replay progress" type="range" min="0" max="100" step="0.1" value="0"><output id="chess-time-value">0%</output></div>
+  <p class="chess-schedule">Pass 1 is inspected; pass 2 is executed.</p>
+  <p class="small-note">Selected seed · family-weighted test outcomes</p>
+  <div class="chess-outcomes"><span>All opponent-piece moves <strong id="chess-opponent">99.04%</strong></span><span>Legal moves <strong id="chess-legal">0.00%</strong></span><span>Rejected commands <strong id="chess-rejected">0.96%</strong></span></div>
+  <p class="small-note">Saved one-move evaluations at 960 training moves. Only executed proposals change the board. Random stopping mostly replaced cheating with rejected commands. Ranges bound unobserved stopping depths, not confidence intervals.</p>
+  <div class="project-links"><a class="chess-source" href="https://github.com/williamklett/looped-readout-monitoring/tree/main/results/chess-family-rl-v1/training">Replay source ↗</a><a href="https://github.com/williamklett/looped-readout-monitoring/blob/main/paper/native-readout-chess-revision/chess-endpoints.tex">All results ↗</a></div>
 </div>

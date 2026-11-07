@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% block title %}{{ p.title }} — William Klett{% endblock %}
 {% block main %}
-<article class="project-page"><a class="back-link" href="{{ root }}index.html#{{ p.slug }}">← William Klett</a>
+<article class="project-page"><a class="back-link" href="{{ root }}index.html">← William Klett</a>
 {% if p.featured %}{% include "demos/" + p.slug + ".html" %}{% else %}<h1>{{ p.title }}</h1><div class="prose">{{ p.body_html | safe }}</div>{% endif %}
 </article>
 {% endblock %}

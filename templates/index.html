@@ -1,28 +1,25 @@
 {% extends "base.html" %}
 {% block main %}
 <header class="hero">
-  <div>
+  <div class="identity">
     <h1>William Klett</h1>
     <p class="interests">Interested in alignment, biosecurity, philosophy.</p>
-    <nav class="personal-links" aria-label="Contact"><a href="https://github.com/williamklett">GitHub ↗</a><a href="mailto:wk2617@princeton.edu">Email ↗</a></nav>
+    <nav class="personal-links" aria-label="Contact"><a href="https://github.com/williamklett">github</a><span aria-hidden="true">/</span><a href="mailto:wk2617@princeton.edu">email</a></nav>
   </div>
-  <button class="hero-art" id="reseed" type="button" aria-label="Rearrange the decorative glyphs" title="Rearrange glyphs">
-    <span class="art-corners" aria-hidden="true">{{ hero_glyph | safe }}</span>
-    <span class="art-refresh" aria-hidden="true">↻</span>
-  </button>
+  <button class="hero-art" id="reseed" type="button" aria-label="Rearrange the decorative glyphs" title="Rearrange glyphs"><span class="art-corners" aria-hidden="true">{{ hero_glyph | safe }}</span></button>
 </header>
-<div class="workbench" id="work">
-  <div class="project-index" role="tablist" aria-label="Projects" aria-orientation="vertical">
-    {% for p in projects if p.featured %}
-    <button class="project-tab" id="tab-{{ p.slug }}" role="tab" aria-selected="{{ 'true' if loop.first else 'false' }}" aria-controls="panel-{{ p.slug }}" tabindex="{{ '0' if loop.first else '-1' }}" data-project="{{ p.slug }}"><span class="project-number">0{{ loop.index }}</span><span>{{ p.title }}</span><span class="tab-arrow" aria-hidden="true">↗</span></button>
-    {% endfor %}
-  </div>
-  <div class="project-panels">
-    {% for p in projects if p.featured %}
-    <section class="project-panel" id="panel-{{ p.slug }}" role="tabpanel" aria-labelledby="tab-{{ p.slug }}" tabindex="0" data-panel="{{ p.slug }}">
-      {% include "demos/" + p.slug + ".html" %}
-    </section>
-    {% endfor %}
-  </div>
+<div class="animation-gallery" aria-label="Projects">
+  {% for p in projects if p.featured %}
+  <a class="project-preview preview-{{ p.slug }}" href="{{ root }}projects/{{ p.slug }}/index.html" data-open-project="{{ p.slug }}" aria-haspopup="dialog" aria-controls="project-detail" aria-label="{{ p.title }} — open project details">
+    <div class="preview-art">{% include "previews/" + p.slug + ".html" %}<span class="preview-open" aria-hidden="true">↗</span></div>
+    <span class="preview-caption"><span class="project-number">0{{ loop.index }}</span><span class="preview-title">{{ p.title }}</span><span class="preview-cross" aria-hidden="true">+</span></span>
+  </a>
+  {% endfor %}
 </div>
+<dialog id="project-detail" aria-label="Project details">
+  <div class="detail-top"><button type="button" id="close-detail" aria-label="Close project details">×</button></div>
+  {% for p in projects if p.featured %}
+  <section class="detail-panel" id="detail-{{ p.slug }}" data-detail="{{ p.slug }}" hidden>{% include "demos/" + p.slug + ".html" %}</section>
+  {% endfor %}
+</dialog>
 {% endblock %}

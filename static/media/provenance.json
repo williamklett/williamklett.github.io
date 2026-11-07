@@ -12,5 +12,31 @@
     "visualization": "MDS of decoded probe distance maps, fixed camera; interpolation between layers",
     "sha256": "f1189bff0c841b6cecd74a3fe6f235aa1a33fbef4e6e7add9b722e0f2a19fbc0",
     "bytes": 4519124
+  },
+  {
+    "file": "t1137s4.json",
+    "representation": "Classical MDS of decoded probe distance maps; C-alpha trace",
+    "layers": 47,
+    "residues": 425,
+    "source_pdb_sha256": "8893ad52ff6c2ca298db4e1a65354e9c4374d57766c1d5f27f40b71c515a7703",
+    "alignment": "Rigid Kabsch alignment of each layer to the final layer, centered at origin",
+    "sha256": "7a755a286960363b664523eb335a13c5be43998f3ac92e6e0c91e67efd78e20d"
+  },
+  {
+    "file": "8fmi.json",
+    "representation": "Classical MDS of decoded probe distance maps; C-alpha trace",
+    "layers": 47,
+    "residues": 170,
+    "source_pdb_sha256": "442d5bb0471faca7760c298c5d2704d917541af32924ec5808a3d8491b82f082",
+    "alignment": "Rigid Kabsch alignment of each layer to the final layer, centered at origin",
+    "sha256": "b18c74ba7a157cf43f99466488a8382827018dd227a4b2a4bcdc9ce3c2f2ab93"
+  },
+  {
+    "file": "chess-replays.json",
+    "representation": "Frozen one-move evaluation events, not full games",
+    "runs": 9,
+    "source_repository": "https://github.com/williamklett/looped-readout-monitoring",
+    "source_hashes": "Recorded in chess-replays.json",
+    "sha256": "d0271b28c92b22f6bf054bce79308f1b756cb66769ee56aafcfb2804c7ad3c64"
   }
 ]

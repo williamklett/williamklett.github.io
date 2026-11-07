@@ -81,6 +81,7 @@ def load_projects():
             "status": meta.get("status"),
             "featured": meta.get("featured", False),
             "category": meta.get("category", ""),
+            "description": meta.get("description", ""),
             "order": meta.get("order", 999),
             "blurb": meta.get("blurb", ""),
             "tags": meta.get("tags", []) or [],
@@ -121,8 +122,8 @@ def main():
     (DIST / "static" / "glyph-hero.svg").write_text(
         glyph.glyph_block("william-klett-hero", rows=6, cols=4, cell=58, color=LAVENDER))
     (DIST / "static" / "texture.svg").write_text(
-        glyph.glyph_texture("william-klett-stone", tile=900, n=42,
-                            size_lo=35, size_hi=110, color="#6c5d9c", opacity=0.08))
+        glyph.glyph_texture("william-klett-stone", tile=900, n=28,
+                            size_lo=30, size_hi=85, color="#69778d", opacity=0.035))
     halftone = glyph.halftone_strip(width=1600, height=40, grid=5, color=INK)
 
     hero_glyph = glyph.glyph_block("william-klett-hero", rows=6, cols=4, cell=58, color=LAVENDER)

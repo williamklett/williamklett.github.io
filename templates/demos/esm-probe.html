@@ -1,9 +1,18 @@
-<div class="demo" data-demo="esm">
+<div class="demo" data-demo="esm" data-media-root="{{ root }}static/media/">
   <div class="project-title"><h2>Geometric ESMFold probe</h2><a href="https://github.com/williamklett/recurrent-protein-folding/blob/main/docs/geometric-readout.md">Write-up ↗</a></div>
-  <div class="video-tabs" role="group" aria-label="Protein animation"><button type="button" data-protein="t1137s4" aria-pressed="true">T1137s4</button><button type="button" data-protein="8fmi" aria-pressed="false">8FMI</button></div>
+  <p class="project-description">{{ p.description }}</p>
+  <div class="probe-pipeline" aria-label="Trunk activations pass through a geometric bottleneck and are reconstructed to minimize reconstruction loss"><span>Trunk activations <i>zₜ</i></span><b>→</b><span class="bottleneck">Geometric bottleneck</span><b>→</b><span>Reconstructed <i>ẑₜ</i></span><small>↖ reconstruction loss ↙</small></div>
+  <div class="viewer-toolbar"><div class="video-tabs" role="group" aria-label="Protein"><button type="button" data-protein="t1137s4" aria-pressed="true">T1137s4</button><button type="button" data-protein="8fmi" aria-pressed="false">8FMI</button></div><div class="camera-controls"><button class="minor-button" id="protein-zoom-out" type="button" aria-label="Zoom out protein">−</button><button class="minor-button" id="protein-zoom-in" type="button" aria-label="Zoom in protein">+</button><button class="minor-button" id="protein-reset" type="button">Reset view ↺</button></div></div>
   <figure class="protein-figure">
-    <video id="protein-video" controls playsinline muted loop preload="metadata" poster="{{ root }}static/media/t1137s4.jpg" aria-label="T1137s4 geometric readouts across ESMFold layers"><source src="{{ root }}static/media/t1137s4.mp4" type="video/mp4">Your browser does not support embedded video. <a href="{{ root }}static/media/t1137s4.mp4">Download the animation</a>.</video>
-    <figcaption>Decoded geometry across model depth · fixed camera</figcaption>
+    <div class="protein-stage terminal-panel">
+      <div class="instrument-label"><span id="protein-name">T1137s4</span><span id="protein-count">47 layers</span></div>
+      <canvas id="protein-canvas" tabindex="0" role="img" aria-label="Interactive decoded protein geometry. Drag or use arrow keys to rotate; plus and minus zoom." aria-describedby="protein-help">Interactive protein geometry requires JavaScript. The original video is available below.</canvas>
+      <p id="protein-loading" role="status">Loading geometry…</p>
+      <div class="viewer-axis" aria-hidden="true">x / y / z</div>
+    </div>
+    <div class="playback"><button type="button" id="protein-play" aria-label="Play protein layers">Play ▶</button><input id="protein-layer" aria-label="ESMFold layer" type="range" min="1" max="47" step="0.1" value="1"><output id="protein-layer-value" for="protein-layer">1 / 47</output></div>
+    <div class="viewer-tools"><span id="protein-help">Drag to rotate · scroll to zoom · ← ↑ ↓ →</span><label><input id="protein-ghost" type="checkbox"> Final-layer outline</label></div>
+    <figcaption>MDS of probe-decoded distances · motion interpolates between measured layers</figcaption>
   </figure>
-  <div class="project-links"><a href="https://github.com/williamklett/recurrent-protein-folding">GitHub ↗</a><a class="video-download" href="{{ root }}static/media/t1137s4.mp4" download>Download video ↓</a></div>
+  <div class="project-links"><a href="https://github.com/williamklett/recurrent-protein-folding">GitHub ↗</a><a class="video-download" href="{{ root }}static/media/t1137s4.mp4" download>Original video ↓</a></div>
 </div>
