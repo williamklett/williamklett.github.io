@@ -7,3 +7,51 @@
 
 .mobile-flow{display:none}
 @media(max-width:480px){.desktop-flow{display:none}.mobile-flow{display:block}.mobile-flow .flow-node text{font-size:12px}.axis{font-size:16px}.market-legend{font-size:9px}.small-note{font-size:9px}}
+
+/* Worn paper and slightly misregistered ink, with the original glyph plate. */
+:root{--bg:#d2cdc1;--ink:#24211e;--dim:#57514a;--rule:#969083;--navy:#1c354e;--lavender:#72618e;--red:#963d33}
+body{background-color:var(--bg);background-image:url('paper-grain.svg'),url('texture.svg');background-size:360px 360px,900px 900px;background-blend-mode:multiply,multiply;-webkit-font-smoothing:auto}
+.site-shell{position:relative;padding-top:12px}
+.site-shell::before{content:"";display:block;position:absolute;top:18px;left:0;width:100%;height:3px;background:var(--ink);clip-path:polygon(0 15%,15% 35%,29% 0,48% 40%,63% 10%,81% 35%,100% 0,100% 70%,79% 100%,60% 70%,42% 100%,20% 65%,0 100%)}
+.hero{padding:55px 4px 43px;gap:50px;min-height:365px}
+.hero h1{font-size:clamp(43px,5vw,64px);letter-spacing:-.055em;text-shadow:1px .5px 0 #963d3330}
+.interests{margin-top:18px;max-width:430px;font-size:20px}
+.personal-links{gap:24px;font-size:11px}
+.personal-links a{border-bottom:1px dashed #963d3360;padding-bottom:3px}
+.hero-art{display:block;position:relative;width:235px;flex-shrink:0;margin:0 17px 0 0;padding:9px 17px 13px;background:none;border:0;opacity:1;transform:rotate(-4deg);isolation:isolate}
+.hero-art::before{content:"";position:absolute;inset:0 -9px -6px 6px;z-index:-1;border:1px solid #433b3560;transform:rotate(3deg);background:linear-gradient(120deg,#f7efdd30,transparent 60%)}
+.hero-art::after{content:"";position:absolute;right:-21px;top:-13px;width:75px;height:86px;z-index:-2;opacity:.36;background:radial-gradient(var(--ink) .8px,transparent 1.3px) 0 0/4px 4px;clip-path:polygon(10% 0,100% 12%,90% 100%,0 91%)}
+.art-corners{display:block;padding:2px 5px;background:linear-gradient(var(--ink),var(--ink)) left top/13px 1px no-repeat,linear-gradient(var(--ink),var(--ink)) left top/1px 13px no-repeat,linear-gradient(var(--ink),var(--ink)) right bottom/13px 1px no-repeat,linear-gradient(var(--ink),var(--ink)) right bottom/1px 13px no-repeat}
+.art-corners svg{width:100%;height:auto;overflow:visible;filter:drop-shadow(1.4px .6px 0 #963d3340);mix-blend-mode:multiply}
+.glyph-item path{transition:transform .65s,fill .3s;transform-box:fill-box;transform-origin:center}
+@media(hover:hover){.glyph-item:hover path{fill:var(--navy);transform:rotate(25deg) scale(1.12)}}
+.art-refresh{position:absolute;right:0;bottom:-21px;font:18px var(--mono);color:var(--red)}
+.hero-art:active .art-refresh{transform:rotate(70deg)}
+.workbench{position:relative;border-top:2px solid var(--ink);border-bottom:2px solid var(--ink);box-shadow:0 -4px 0 -3px var(--rule);background:#e2dbcc30}
+.workbench::after{content:"";position:absolute;left:-4px;right:-4px;bottom:-8px;height:3px;background:repeating-linear-gradient(95deg,#62564a80 0 7px,transparent 7px 9px);pointer-events:none;transform:rotate(-.12deg)}
+.project-index{border-right:1px dashed var(--rule);background:#7b6e5820}
+.project-tab{border-bottom:1px dashed var(--rule);padding-top:28px;padding-bottom:28px;color:var(--ink)}
+.project-tab:hover{background:#a2937a26}
+.project-tab[aria-selected=true]{color:var(--bg);background:var(--ink) url('paper-grain.svg');background-blend-mode:soft-light}
+.project-tab[aria-selected=true]:before{background:var(--red);width:5px;clip-path:polygon(10% 0,100% 3%,70% 30%,100% 66%,60% 100%,0 97%)}
+.project-tab[aria-selected=true] .project-number{color:#c9b9cf}
+.project-number{font-size:10px}
+.project-title{border-bottom:1px dotted var(--rule);padding-bottom:15px;margin-bottom:24px}
+.project-title h2{font-size:30px;letter-spacing:-.04em}
+.earnings{border-bottom:1px dashed var(--rule)}
+.earnings dd{color:var(--ink)}
+.flow-node rect{fill:#e3dcc950;stroke:#82796a;stroke-width:1.1;stroke-dasharray:80 1 9 1}
+.flow-lines{stroke-width:1.6}.flow-node text{fill:var(--ink)}
+.quote-path{stroke-width:1.8}.price-path{stroke-width:2.6}
+.playback button,.video-tabs button,.segmented button{border-color:#82796a;box-shadow:2px 2px 0 #6b5d4b28;border-radius:0;background:#e8dfcb40}
+.video-tabs button[aria-pressed=true],.segmented button[aria-pressed=true]{color:var(--bg);background:var(--ink) url('paper-grain.svg');border-color:var(--ink);background-blend-mode:soft-light}
+.video-tabs button:nth-child(2){transform:rotate(.7deg)}
+.protein-figure video{border:1px solid var(--ink);box-shadow:5px 5px 0 #6b5d4b28}
+.loop-bar{background:var(--lavender) url('paper-grain.svg');background-blend-mode:multiply;border:1px solid #4f405b70;border-bottom:0}
+.loop-bar-space{border-bottom:1px dashed #82796a}
+.project-links a{border-bottom:1px dashed #82796a;padding-bottom:3px}
+@media(min-width:1100px){.site-shell::after{content:"";position:absolute;top:65px;left:-25px;bottom:80px;width:5px;background:linear-gradient(90deg,transparent,#51483920,transparent);pointer-events:none}}
+@media(max-width:950px){.hero{gap:30px}.hero-art{width:205px;margin-right:14px}.hero h1{font-size:50px}.interests{max-width:340px}.project-title h2{font-size:27px}}
+@media(max-width:720px){.site-shell{padding-top:10px}.site-shell::before{top:13px}.hero{gap:22px;padding:42px 0 35px;min-height:0}.hero-art{display:block;width:145px;padding:6px 10px;margin:0 10px 8px 0}.hero-art::after{width:45px;height:65px;right:-15px;top:-8px}.hero h1{font-size:39px;line-height:1.08}.interests{font-size:17px;line-height:1.45;margin:14px 0 16px}.personal-links{font-size:10px;gap:18px}.project-index{border-right:0}.project-tab{padding:19px 10px}.project-tab[aria-selected=true]:before{width:100%;height:4px;clip-path:polygon(0 10%,50% 30%,90% 0,100% 25%,100% 100%,0 100%)}.project-title h2{font-size:25px}}
+@media(max-width:480px){.hero{gap:17px}.hero>div{flex:1;min-width:0}.hero-art{width:117px;padding:4px 7px;margin-right:7px}.hero h1{font-size:37px;max-width:185px}.interests{font-size:16px}.hero-art::after{width:38px;height:48px}.art-refresh{font-size:17px}.project-title h2{font-size:24px}}
+@media(prefers-reduced-motion:reduce){.glyph-item path{transition:none}}

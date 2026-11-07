@@ -119,4 +119,12 @@
     loops.querySelectorAll('[data-schedule]').forEach(button => button.addEventListener('click', () => { schedule = button.dataset.schedule; loops.querySelectorAll('[data-schedule]').forEach(b => b.setAttribute('aria-pressed', String(b === button))); drawLoops(); }));
     probability.addEventListener('input', drawLoops); drawLoops();
   }
+  let glyphSeed = 0;
+  document.getElementById('reseed')?.addEventListener('click', () => {
+    glyphSeed++;
+    document.querySelectorAll('.hero-art .glyph-item path').forEach((path, i) => {
+      path.style.transform = `rotate(${(i * 67 + glyphSeed * 53) % 360}deg) scale(${.8 + ((i + glyphSeed) % 4) * .1})`;
+      path.style.fill = (i + glyphSeed) % 5 === 0 ? 'var(--navy)' : 'var(--lavender)';
+    });
+  });
 })();

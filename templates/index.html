@@ -6,7 +6,10 @@
     <p class="interests">Interested in alignment, biosecurity, philosophy.</p>
     <nav class="personal-links" aria-label="Contact"><a href="https://github.com/williamklett">GitHub ↗</a><a href="mailto:wk2617@princeton.edu">Email ↗</a></nav>
   </div>
-  <div class="hero-art" aria-hidden="true">{{ hero_glyph | safe }}</div>
+  <button class="hero-art" id="reseed" type="button" aria-label="Rearrange the decorative glyphs" title="Rearrange glyphs">
+    <span class="art-corners" aria-hidden="true">{{ hero_glyph | safe }}</span>
+    <span class="art-refresh" aria-hidden="true">↻</span>
+  </button>
 </header>
 <div class="workbench" id="work">
   <div class="project-index" role="tablist" aria-label="Projects" aria-orientation="vertical">
