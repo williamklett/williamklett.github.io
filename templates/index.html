@@ -14,8 +14,8 @@
 <div class="animation-gallery" aria-label="Projects">
   {% for p in projects if p.featured %}
   <a class="project-preview preview-{{ p.slug }}" href="{{ root }}projects/{{ p.slug }}/index.html" data-open-project="{{ p.slug }}" aria-haspopup="dialog" aria-controls="project-detail" aria-label="{{ p.title }} — open project details">
-    <div class="preview-art">{% include "previews/" + p.slug + ".html" %}<span class="preview-open" aria-hidden="true">↗</span></div>
-    <span class="preview-caption"><span class="project-number">0{{ loop.index }}</span><span class="preview-title">{{ p.title }}</span><span class="preview-cross" aria-hidden="true">+</span></span>
+    <span class="preview-caption">{{ p.title }}</span>
+    <div class="preview-art">{% include "previews/" + p.slug + ".html" %}</div>
   </a>
   {% endfor %}
 </div>
