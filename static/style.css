@@ -70,13 +70,10 @@ body{background-color:var(--bg);background-image:url('paper-grain.svg'),radial-g
 .preview-caption .project-number{width:auto;margin:0}.preview-caption .preview-title{flex:1}
 
 /* Portrait and writing keep the landing page spare. */
-.identity{flex:1;min-width:0}
-.identity-heading{display:flex;align-items:center;gap:22px}
+.hero{display:grid;grid-template-columns:minmax(0,1fr)118px minmax(0,1fr);column-gap:48px}
+.identity{min-width:0}.hero-art{justify-self:end}
 .portrait{display:block;width:118px;height:176px;flex:0 0 auto;object-fit:cover;object-position:50% 40%;border:0;box-shadow:none}
 .identity .interests{max-width:480px}.current-role{display:inline-block;margin-top:7px}
-.writing{display:flex;justify-content:flex-end;padding-top:24px}
-.writing a{font:12px var(--mono);color:var(--ink);text-decoration:underline;text-underline-offset:4px}.writing a span{display:inline-block;margin-left:5px;text-decoration:none}
-.writing+.hero{padding-top:30px}
-@media(max-width:950px){.portrait{width:100px;height:150px}.identity-heading h1{font-size:52px}}
-@media(max-width:720px){.hero{display:grid;grid-template-columns:minmax(0,1fr)80px 100px;grid-template-areas:"name portrait glyph" "bio bio bio" "links links links";gap:16px 20px}.identity,.identity-heading{display:contents}.identity-heading h1{grid-area:name;font-size:40px}.portrait{grid-area:portrait;width:80px;height:120px}.hero-art{grid-area:glyph;width:100px}.identity .interests{grid-area:bio;max-width:none;font-size:15px;margin:0}.personal-links{grid-area:links}.writing{padding-top:20px}}
+@media(max-width:950px){.hero{grid-template-columns:minmax(0,1fr)100px minmax(0,1fr);column-gap:30px}.portrait{width:100px;height:150px}.identity-heading h1{font-size:52px}}
+@media(max-width:720px){.hero{grid-template-columns:minmax(0,1fr)80px 100px;grid-template-areas:"name portrait glyph" "bio bio bio" "links links links";gap:16px 20px}.identity,.identity-heading{display:contents}.identity-heading h1{grid-area:name;font-size:40px}.portrait{grid-area:portrait;width:80px;height:120px}.hero-art{grid-area:glyph;width:100px}.identity .interests{grid-area:bio;max-width:none;font-size:15px;margin:0}.personal-links{grid-area:links}}
 @media(max-width:440px){.hero{grid-template-columns:minmax(0,1fr)70px 78px;column-gap:14px}.hero-art{width:78px}.portrait{width:70px;height:105px}.identity-heading h1{font-size:36px}.identity .interests{line-height:1.5}}
