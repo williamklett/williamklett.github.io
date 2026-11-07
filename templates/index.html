@@ -2,8 +2,11 @@
 {% block main %}
 <header class="hero">
   <div class="identity">
-    <h1>William Klett</h1>
-    <p class="interests">Interested in alignment, biosecurity, philosophy.</p>
+    <div class="identity-heading">
+      <img class="portrait" src="{{ root }}static/media/william-klett.png" alt="William Klett" width="104" height="104" fetchpriority="high">
+      <h1>William Klett</h1>
+    </div>
+    <p class="interests">Alignment, biosecurity, philosophy, markets.<br><span class="current-role">Currently sophomore at Princeton and researcher for Foldguard Bio.</span></p>
     <nav class="personal-links" aria-label="Contact"><a href="https://github.com/williamklett">github</a><span aria-hidden="true">/</span><a href="mailto:wk2617@princeton.edu">email</a></nav>
   </div>
   <button class="hero-art" id="reseed" type="button" aria-label="Rearrange the decorative glyphs" title="Rearrange glyphs"><span class="art-corners" aria-hidden="true">{{ hero_glyph | safe }}</span></button>
@@ -16,6 +19,10 @@
   </a>
   {% endfor %}
 </div>
+<section class="writing" aria-labelledby="writing-title">
+  <h2 id="writing-title">Writing</h2>
+  <a href="https://www.lesswrong.com/users/william-klett">LessWrong <span aria-hidden="true">↗</span></a>
+</section>
 <dialog id="project-detail" aria-label="Project details">
   <div class="detail-top"><button type="button" id="close-detail" aria-label="Close project details">×</button></div>
   {% for p in projects if p.featured %}

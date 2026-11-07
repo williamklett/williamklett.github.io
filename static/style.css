@@ -68,3 +68,14 @@ body{background-color:var(--bg);background-image:url('paper-grain.svg'),radial-g
 @media(max-width:720px){.site-shell{width:calc(100% - 40px)}.hero{padding:38px 0 38px;gap:25px}.hero h1{font-size:44px}.interests{font-size:16px;margin:16px 0}.hero-art{width:125px;margin:0}.animation-gallery{grid-template-columns:1fr;gap:24px;max-width:480px;margin:auto}.preview-art{aspect-ratio:360/260}.preview-art svg{object-fit:contain}.preview-title{font-size:22px}.preview-caption{padding:12px 0}.project-number{font-size:10px}.preview-open{opacity:1}.preview-layer{font-size:9px}.preview-type{font-size:9px}.gallery-caption{font-size:22px}#project-detail{width:calc(100% - 22px);max-height:calc(100dvh - 24px);padding:0 17px 25px;box-shadow:3px 3px 0 #41344766}.detail-top{height:41px;margin-right:-8px}.project-title h2{font-size:26px}.project-description{font-size:17px}.project-title{padding-bottom:13px}.project-links{gap:20px}}
 @media(max-width:440px){.hero{gap:15px}.hero h1{font-size:40px;max-width:210px}.hero-art{width:102px}.identity{min-width:0}.interests{font-size:15px;max-width:220px}.personal-links{font-size:9px}.preview-art{aspect-ratio:360/285}.project-title h2{font-size:24px}}
 .preview-caption .project-number{width:auto;margin:0}.preview-caption .preview-title{flex:1}
+
+/* Portrait and writing keep the landing page spare. */
+.identity-heading{display:flex;align-items:center;gap:24px}
+.portrait{display:block;width:104px;height:104px;flex:0 0 auto;object-fit:cover;border:1px solid #8d819d;box-shadow:3px 3px 0 #8c7a9d40}
+.identity .interests{max-width:480px}.current-role{display:inline-block;margin-top:7px}
+.writing{display:flex;align-items:baseline;gap:30px;margin-top:34px;padding-top:22px;border-top:1px solid #84778e7a}
+.writing h2{font:24px var(--serif);font-weight:400;letter-spacing:-.025em}
+.writing a{font:11px var(--mono);color:var(--ink);text-decoration:underline;text-underline-offset:4px}.writing a span{display:inline-block;margin-left:9px;text-decoration:none}
+@media(max-width:950px){.identity-heading{gap:18px}.portrait{width:88px;height:88px}.identity-heading h1{font-size:52px}}
+@media(max-width:720px){.identity-heading{gap:13px}.portrait{width:72px;height:72px}.identity-heading h1{font-size:40px}.identity .interests{font-size:15px}.writing{max-width:480px;margin:32px auto 0}}
+@media(max-width:440px){.hero{gap:18px}.hero-art{width:90px}.identity-heading{gap:12px}.portrait{width:64px;height:76px}.identity-heading h1{font-size:36px}.identity .interests{max-width:none;font-size:15px;line-height:1.5}.writing h2{font-size:23px}}
